@@ -37,15 +37,13 @@ const requestTime = function (req, res, next) {
 // 自訂送出回應時間
 const responseTime = function (req, res, next) {
   res.responseTime = new Date().toLocaleString()
-  next();
-};
+  next()
+}
 
 // 輸出紀錄
 function timeRecord(req, res) {
   let responseText = '\n'
-
   responseText += `Requested at: ${req.requestTime} | Responded at:  ${res.responseTime} || total time: ${Date.parse(res.responseTime) - Date.parse(req.requestTime)} ms(毫秒)`
-
   responseText += '\n-----------------------------'
   return responseText
 }
